@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+<style>
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(16, 3, 62);
+}
+
+input{
+    display: block;
+    margin: 20px auto;
+    text-align: right;
+    padding-right: 7px;
+    font-family: sans-serif;
+    width: 260px;
+    height: 30px;
+    user-select: none;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    
+}
+.calculator{
+    width: 280px;
+    height: 300px;
+    background-color: black;
+    padding: 5px;
+    padding-top: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgb(54, 235, 44),-2px -2px 10px rgb(54, 235, 44);
+    object-fit: cover;
+    position: relative;
+    margin-top: 10px;
+
+}
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 20px;
+    padding: 3px;
+    
+}
+button{
+    margin: 2px auto;
+    width: 63px;
+    height: 30px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+button:nth-last-child(2){
+    font-size: 22px;
+    width: 120px;
+    background-color: rgb(172, 7, 7);
+    color: white;
+    display: grid;
+    place-items: center;
+    grid-column-start:3 ;
+    grid-column-end: 5;
+    
+
+}
+h2{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 10px;
+}
+h3{
+    position: absolute;
+    font-size: 24px;
+    top: 2px;
+     left: 35%;
+    color: white;
+    user-select: none;
+    color: aqua;
+}
+</style>
+
+</head>
+<body>
+    
+    <h2>JS CALCULATOR</h2>
+    <div class="calculator">
+        <input type="text" class="input-screen"  placeholder="0">
+        <div class="buttons">
+        <button onclick="clean()">Del</button>
+        <button onclick="allclear()">AC</button>
+        <button onclick="num(value)" value="%">%</button>
+        <button onclick="num(value)"   value="+">+</button>
+        <button onclick="num(value)"   value="7">7</button>
+        <button onclick="num(value)"   value="8">8</button>
+        <button onclick="num(value)"   value="9">9</button>
+        <button onclick="num(value)"   value="*">*</button>
+        <button onclick="num(value)"   value="4">4</button>
+        <button onclick="num(value)"   value="5">5</button>
+        <button onclick="num(value)"   value="6">6</button>
+        <button onclick="num(value)"   value="-">-</button>
+        <button onclick="num(value)"   value="1">1</button>
+        <button onclick="num(value)"   value="2">2</button>
+        <button onclick="num(value)"   value="3">3</button>
+        <button onclick="num(value)"   value="/">/</button>
+        <button onclick="num(value)"   value="." >.</button>
+        <button onclick="num(value)"   value="5" >0</button>
+        <button onclick="equal()" >=</button>
+        <h3>Casonio</h3>
+    </div>
+    </div>
+
+    <script>
+         let input_screen=document.querySelector('.input-screen')
+
+function num(num){
+      input_screen.value += num;
+}
+function equal(){
+      try{
+        input_screen.value=eval(input_screen.value)
+
+      }
+       catch{
+            input_screen.value="Invalid Error"
+
+      }
+}
+function allclear(){
+       input_screen.value=''
+
+}
+function clean(){
+      
+      input_screen.value=(input_screen.value).slice(0,-1)
+      console.log(input_screen.value)
+}
+
+    </script>
+</body>
+</html>
+
+
+ 
